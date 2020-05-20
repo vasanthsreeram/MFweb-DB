@@ -148,6 +148,7 @@ db.Table(
    db.Column('ChoicesSize', db.Text(length=10000)), 
    db.Column('InitialSamplesSize', db.Text(length=10000)), 
    db.Column('ChoicesCorrect', db.Text(length=10000)), 
+   db.Column('ReactionTimes', db.Text(length=10000)), 
    db.Column('Chosen', db.Text(length=10000)), 
    db.Column('CorrectAns', db.Text(length=10000)), 
    db.Column('NumTraining', db.Text(length=10000)), 

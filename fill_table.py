@@ -18,7 +18,7 @@ engine.table_names()
 
 for user_i in range(1,2):
     
-    folder_usr = '/Users/magdadubois/MF/task_data/data/user_' + str(user_i) + '/'
+    folder_usr = '../webapp_taskdata/data/user_' + str(user_i) + '/'
     
     ###########################
     ###### Table: task  #######
