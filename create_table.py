@@ -155,3 +155,22 @@ db.Table(
 )
 
 metadata.create_all(engine)
+
+
+# Establish the connection with the DB: 
+engine     = db.create_engine('mysql+pymysql://root:123456??@localhost/MF', echo = True)
+metadata   = db.MetaData()
+connection = engine.connect()
+
+db.Table(
+    'questions_behaviour', metadata, 
+    
+   db.Column('id', db.Integer, primary_key = True), 
+   db.Column('UserNo', db.Integer), 
+   db.Column('SumPassed', db.Text(length=10000)), 
+   db.Column('PressedKeys', db.Text(length=10000)), 
+   db.Column('PercentagePassed', db.Text(length=10000)), 
+   db.Column('Correct', db.Text(length=10000)),
+)
+
+metadata.create_all(engine)

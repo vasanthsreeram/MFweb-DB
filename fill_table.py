@@ -111,6 +111,8 @@ for user_i in range(1,2):
       
          values_list = [Tab]
          ResultProxy = connection.execute(query,values_list)
+         
+         
         
 
 
