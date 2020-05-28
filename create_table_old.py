@@ -187,14 +187,12 @@ db.Table(
     
    db.Column('id', db.Integer, primary_key = True), 
    db.Column('UserNo', db.Integer), 
-   
    db.Column('PageNo0', db.Text(length=10000)), 
    db.Column('PageNo1', db.Text(length=10000)),
    db.Column('PageNo2', db.Text(length=10000)),
    db.Column('PageNo3', db.Text(length=10000)),
    db.Column('PageNo4', db.Text(length=10000)),
    db.Column('PageNo5', db.Text(length=10000)),
-   
    db.Column('IQ_1', db.Text(length=10000)),
    db.Column('IQ_2', db.Text(length=10000)),
    db.Column('IQ_3', db.Text(length=10000)),
@@ -203,20 +201,6 @@ db.Table(
    db.Column('IQ_6', db.Text(length=10000)),
    db.Column('IQ_7', db.Text(length=10000)),
    db.Column('IQ_8', db.Text(length=10000)),
-   
-   db.Column('IQimage_1', db.Text(length=10000)),
-   db.Column('IQimage_2', db.Text(length=10000)),
-   db.Column('IQimage_3', db.Text(length=10000)),
-   db.Column('IQimage_4', db.Text(length=10000)),
-   db.Column('IQimage_5', db.Text(length=10000)),
-   db.Column('IQimage_6', db.Text(length=10000)),
-   db.Column('IQimage_7', db.Text(length=10000)),
-   db.Column('IQimage_8', db.Text(length=10000)),
-   
-   db.Column('ASRS', db.Text(length=10000)),
-   db.Column('BIS11', db.Text(length=10000)),
-   db.Column('IUS', db.Text(length=10000)),
-
 )
 
 metadata.create_all(engine)
