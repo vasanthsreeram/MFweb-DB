@@ -170,6 +170,7 @@ db.Table(
    db.Column('SumPassed', db.Text(length=10000)), 
    db.Column('PressedKeys', db.Text(length=10000)), 
    db.Column('PercentagePassed', db.Text(length=10000)), 
+   db.Column('ReactionTimes', db.Text(length=10000)), 
    db.Column('Correct', db.Text(length=10000)),
 )
 
