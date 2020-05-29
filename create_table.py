@@ -116,6 +116,8 @@ db.Table(
    db.Column('id', db.Integer, primary_key = True), 
    db.Column('UserNo', db.Integer), 
    db.Column('BlockNo', db.Integer), 
+   db.Column('BlockStartTime', db.Text(length=10000)), 
+   db.Column('BlockFinishTime', db.Text(length=10000)), 
    db.Column('TreeColours', db.Text(length=10000)), 
    db.Column('ChosenTree', db.Text(length=10000)), 
    db.Column('ChosenAppleSize', db.Text(length=10000)), 
@@ -144,6 +146,8 @@ db.Table(
     
    db.Column('id', db.Integer, primary_key = True), 
    db.Column('UserNo', db.Integer), 
+   db.Column('TrainingStartTime', db.Text(length=10000)), 
+   db.Column('TrainingFinishTime', db.Text(length=10000)), 
    db.Column('SumPassed', db.Text(length=10000)), 
    db.Column('ChoicesSize', db.Text(length=10000)), 
    db.Column('InitialSamplesSize', db.Text(length=10000)), 
@@ -167,6 +171,9 @@ db.Table(
     
    db.Column('id', db.Integer, primary_key = True), 
    db.Column('UserNo', db.Integer), 
+   db.Column('InstructionsStartTime', db.Text(length=10000)), 
+   db.Column('QuestionsStartTime', db.Text(length=10000)), 
+   db.Column('QuestionsFinishTime', db.Text(length=10000)), 
    db.Column('SumPassed', db.Text(length=10000)), 
    db.Column('PressedKeys', db.Text(length=10000)), 
    db.Column('PercentagePassed', db.Text(length=10000)), 
@@ -188,6 +195,10 @@ db.Table(
     
    db.Column('id', db.Integer, primary_key = True), 
    db.Column('UserNo', db.Integer), 
+   
+   db.Column('Date', db.Text(length=10000)), 
+   db.Column('StartTime', db.Text(length=10000)), 
+   db.Column('FinishTime', db.Text(length=10000)), 
    
    db.Column('PageNo0', db.Text(length=10000)), 
    db.Column('PageNo1', db.Text(length=10000)),
