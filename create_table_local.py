@@ -115,6 +115,7 @@ db.Table(
 
    db.Column('id', db.Integer, primary_key = True),
    db.Column('UserNo', db.Integer),
+   db.Column('ProlificID', db.Text(length=10000)),
    db.Column('UserStartTime', db.Text(length=10000)),
    db.Column('BlockNo', db.Integer),
    db.Column('BlockStartTime', db.Text(length=10000)),
@@ -147,6 +148,7 @@ db.Table(
 
    db.Column('id', db.Integer, primary_key = True),
    db.Column('UserNo', db.Integer),
+   db.Column('ProlificID', db.Text(length=10000)),
    db.Column('UserStartTime', db.Text(length=10000)),
    db.Column('TrainingStartTime', db.Text(length=10000)),
    db.Column('TrainingFinishTime', db.Text(length=10000)),
@@ -173,6 +175,7 @@ db.Table(
 
    db.Column('id', db.Integer, primary_key = True),
    db.Column('UserNo', db.Integer),
+   db.Column('ProlificID', db.Text(length=10000)),
    db.Column('UserStartTime', db.Text(length=10000)),
    db.Column('InstructionsStartTime', db.Text(length=10000)),
    db.Column('QuestionsStartTime', db.Text(length=10000)),
@@ -198,6 +201,7 @@ db.Table(
 
    db.Column('id', db.Integer, primary_key = True),
    db.Column('UserNo', db.Integer),
+   db.Column('ProlificID', db.Text(length=10000)),
    db.Column('UserStartTime', db.Text(length=10000)),
 
    db.Column('Date', db.Text(length=10000)),
