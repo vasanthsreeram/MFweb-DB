@@ -16,9 +16,9 @@ connection = engine.connect()
 # print the tables names present in the DB: 
 engine.table_names()
 
-for user_i in range(1,10):
+for user_i in range(10,20):
     
-    folder_usr = '../webapp_taskdata/data/user_' + str(user_i) + '/'
+    folder_usr = '../data/task/user_' + str(user_i) + '/'
     
     ###########################
     ###### Table: task  #######

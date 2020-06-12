@@ -239,6 +239,7 @@ db.Table(
    db.Column('IUS', db.Text(length=10000)),
    db.Column('SDS', db.Text(length=10000)),
    db.Column('STAI', db.Text(length=10000)),
+   db.Column('OCIR', db.Text(length=10000)),
 
 )
 
