@@ -16,9 +16,9 @@ connection = engine.connect()
 # print the tables names present in the DB: 
 engine.table_names()
 
-for user_i in range(10,20):
+for task_no in range(1,100):
     
-    folder_usr = '../data/task/user_' + str(user_i) + '/'
+    folder_usr = '../data/generative/tasks/task_' + str(task_no) + '/'
     
     ###########################
     ###### Table: task  #######
@@ -34,7 +34,7 @@ for user_i in range(10,20):
     tab = mat.get("Task")
     for i in range(0,len(tab)):
          Tab = dict()
-         Tab['UserNo']              = tab[i,0].tolist()
+         Tab['TaskNo']              = tab[i,0].tolist()
          Tab['TrialNo']             = tab[i,1].tolist()
          Tab['BlockNo']             = tab[i,2].tolist()
          Tab['Horizon']             = tab[i,3].tolist()
@@ -89,6 +89,10 @@ for user_i in range(10,20):
     ###### Table: training  #######
     ###############################
     
+for training_no in range(1,100):
+    
+    folder_usr = '../data/generative/trainings/training_' + str(training_no) + '/'
+    
     # Specify the table you want to insert the data into: 
     table  = db.Table('training', metadata, autoload=True, autoload_with=engine)
     
@@ -99,7 +103,7 @@ for user_i in range(10,20):
     tab = mat.get("Training")
     for i in range(0,len(tab)):
          Tab = dict()
-         Tab['UserNo']              = tab[i,0].tolist()
+         Tab['TrainingNo']          = tab[i,0].tolist()
          Tab['TrialNo']             = tab[i,1].tolist()
          Tab['InitialSample1Size']  = tab[i,2].tolist()
          Tab['InitialSample2Size']  = tab[i,3].tolist()
