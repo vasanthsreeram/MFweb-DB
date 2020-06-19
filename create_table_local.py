@@ -222,6 +222,10 @@ db.Table(
    db.Column('PageNo3', db.Text(length=10000)),
    db.Column('PageNo4', db.Text(length=10000)),
    db.Column('PageNo5', db.Text(length=10000)),
+   db.Column('PageNo6', db.Text(length=10000)),
+   db.Column('PageNo7', db.Text(length=10000)),
+   db.Column('PageNo8', db.Text(length=10000)),
+   db.Column('PageNo9', db.Text(length=10000)),
 
    db.Column('IQ_1', db.Text(length=10000)),
    db.Column('IQ_2', db.Text(length=10000)),

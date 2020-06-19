@@ -16,7 +16,7 @@ connection = engine.connect()
 # print the tables names present in the DB: 
 engine.table_names()
 
-for task_no in range(1,100):
+for task_no in range(1,101):
     
     folder_usr = '../data/generative/tasks/task_' + str(task_no) + '/'
     
@@ -89,7 +89,7 @@ for task_no in range(1,100):
     ###### Table: training  #######
     ###############################
     
-for training_no in range(1,100):
+for training_no in range(1,101):
     
     folder_usr = '../data/generative/trainings/training_' + str(training_no) + '/'
     
