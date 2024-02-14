@@ -3,29 +3,63 @@
 '''
  Script to fill the MF DB tables
 '''
-
 # Connect to the DB 
 import sqlalchemy as db
 import scipy.io
+from sqlalchemy import inspect
+import time,os
+from sqlalchemy.exc import SQLAlchemyError
 
 # Establish the connection with the DB: 
-engine     = db.create_engine('mysql+pymysql://root:123456??@localhost/MF', echo = True)
+username = "gridgame"
+password = "J35pZyjo9kLQjh"
+server = "clic.database.windows.net"
+database = "clic"
+
+# Variables to modify:
+# Warning make sure that these two vaules are the same as the ones in the matlab code if not it will break!
+task_range = 101 # number of tasks to insert in the DB
+training_range = 101 # number of trainings to insert in the DB  
+
+
+
+db_uri = f"mssql+pymssql://{username}:{password}@{server}/{database}"
+engine     = db.create_engine(db_uri, echo = True)
 metadata   = db.MetaData()
 connection = engine.connect()
 
 # print the tables names present in the DB: 
-engine.table_names()
+inspector = inspect(engine)
+print(inspector.get_table_names())
 
-for task_no in range(1,101):
+# Clearing the tables before inserting new data
+try:
+    connection.execute(db.delete(db.Table('task', metadata, autoload_with=engine)))
+    connection.execute(db.delete(db.Table('training', metadata, autoload_with=engine)))
+    print("Cleared existing data from tables.")
+except SQLAlchemyError as e:
+    print("Error occurred while clearing tables:", e)
+    connection.rollback()
+    exit()
+
+for task_no in range(1,task_range): 
+    # modify the range to insert the data for a specific task
     
     folder_usr = '../data/generative/tasks/task_' + str(task_no) + '/'
-    
+    file_path = os.path.abspath(folder_usr + 'Task.mat')
+    print("Looking for file at:", file_path)
+
+    # Check if the file exists
+    if not os.path.exists(file_path):
+        print("File not found:", file_path)
+        continue
+
     ###########################
     ###### Table: task  #######
     ###########################
     
     # Specify the table you want to insert the data into: 
-    table  = db.Table('task', metadata, autoload=True, autoload_with=engine)
+    table  = db.Table('task', metadata, autoload_with=engine)
     
     #Inserting many records at ones
     query  = db.insert(table) 
@@ -89,12 +123,13 @@ for task_no in range(1,101):
     ###### Table: training  #######
     ###############################
     
-for training_no in range(1,101):
+for training_no in range(1,training_range):
     
     folder_usr = '../data/generative/trainings/training_' + str(training_no) + '/'
-    
+    print(folder_usr)
+
     # Specify the table you want to insert the data into: 
-    table  = db.Table('training', metadata, autoload=True, autoload_with=engine)
+    table  = db.Table('training', metadata, autoload_with=engine)
     
     #Inserting many records at ones
     query  = db.insert(table) 
@@ -120,3 +155,12 @@ for training_no in range(1,101):
         
 
 
+try:
+    # ... your existing code for data insertion ...
+
+    # Commit the transaction
+    connection.commit()
+
+except SQLAlchemyError as e:
+    print("Error occurred:", e)
+    connection.rollback() 

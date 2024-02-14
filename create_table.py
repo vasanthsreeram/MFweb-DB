@@ -10,8 +10,14 @@ import sqlalchemy as db
 from sqlalchemy import VARCHAR, ARRAY
 from config import config
 
-# Establish the connection with the DB: 
-engine     = db.create_engine(config.get('Database Parameters','database_url'), echo = True)
+# Establish the connection with the
+username = "gridgame"
+password = "J35pZyjo9kLQjh"
+server = "clic.database.windows.net"
+database = "clic"
+
+db_uri = f"mssql+pymssql://{username}:{password}@{server}/{database}"
+engine     = db.create_engine(db_uri, echo = True)
 metadata   = db.MetaData()
 connection = engine.connect()
 
